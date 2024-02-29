@@ -37,8 +37,8 @@ This mod introduces a *A Song of Ice and Fire Lore* game rules setting for Carna
 
 According to [Slavery](https://awoiaf.westeros.org/index.php/Slavery) and [R'hllor](https://awoiaf.westeros.org/index.php/R%27hllor) Wiki pages:
 
-* Both the *Old Gods* and the *Faith of the Seven* hold slavery to be an abomination. I take this to mean that slavery should be criminal in all *Faith of the Seven* and *Old Gods* faiths.
-* The Ironborn (who are *Drowned God* adherents) keep thralls and salt wives, who are not regarded as slaves. I take this to mean that slavery should be shunned in *Drowned God* faiths, rather than criminal.
+* Both the *Old Gods* and the *Faith of the Seven* hold slavery to be an abomination. I take this to mean that slavery should be criminal in *Faith of the Seven* and *Old Gods* faiths.
+* The Ironborn (who are *Drowned God* adherents) keep thralls and salt wives, but don't regard them as slaves. I take this to mean that slavery should be either shunned or accepted in *Drowned God* faiths.
 * Slavery was widespread in Old Valyria and still is in the Free Cities, except for Braavos. I take this to mean that slavery should be accepted in *Valyrian* faiths.
 * Servants of the Temple of the Lord of Light in Volantis are slaves who were bought as children and trained. I take this to mean that slavery should be accepted in *Dawnbringer* faiths.
 
@@ -70,6 +70,6 @@ The baseline for *Hostile Faith Slavery* depending on religious family is as fol
 * *Rhyonish*: shunned
 * *Winter*: accepted
 
-The only exception from the baseline is the *Old Gods* religion, where hostile faith slavery is criminal instead of shunned.
+The exceptions from the baseline are the *Old Gods* religion, where hostile faith slavery is criminal, and the the *Drowned God* religion, where it is accepted.
 
 Note that *Hostile Faith Slavery* can never be less accepted than *Righteous Faith Slavery*.

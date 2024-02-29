@@ -36,7 +36,7 @@ carn_slavery_doctrine_seeding.0001 = {
 								add_doctrine = carn_doctrine_same_slavery_shunned
 							}
 							else = {
-								# Righteous faith slavery is shunned in other Westerosi religions
+								# Righteous faith slavery is crime in other Westerosi faiths
 								add_doctrine = carn_doctrine_same_slavery_crime
 							}
 						}
@@ -84,11 +84,17 @@ carn_slavery_doctrine_seeding.0001 = {
 							limit = { religion = { is_in_family = rf_westerosi } }
 							if = {
 								limit = { religion = religion:old_gods_religion }
-								# Hostile faith slavery is crime in Old Gods religions
+								# Hostile faith slavery is crime in Old Gods faiths
 								add_doctrine = carn_doctrine_other_slavery_crime
 							}
+							else_if = {
+								limit = { religion = religion:drowned_god_religion }
+								# Hostile faith slavery is accepted in Drowned God faiths
+								# Drowned God adherents keep thralls and salt wives, but don't regard them as slaves
+								add_doctrine = carn_doctrine_other_slavery_accepted
+							}
 							else = {
-								# Hostile faith slavery is shunned in other Westerosi religions
+								# Hostile faith slavery is shunned in other Westerosi faiths
 								# No sources, compromise between Old Gods and Drowned God
 								add_doctrine = carn_doctrine_other_slavery_shunned
 							}
