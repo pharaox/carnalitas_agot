@@ -20,9 +20,17 @@ carn_agot_seed_slavery_doctrines_effect = {
 		else_if = {
 			limit = { religion = { is_in_family = rf_westerosi } }
 			if = {
-				limit = { religion = religion:drowned_god_religion }
-				# Righteous faith slavery is shunned in Drowned God faiths
+				limit = {
+					OR = {
+						religion = religion:drowned_god_religion
+						this = faith:old_gods_btw
+						this = faith:old_gods_frozen_shore
+						this = faith:magnaric
+					}
+				}
+				# Righteous faith slavery is shunned in Drowned God faiths and Old Gods faiths north of the Wall
 				# Drowned God adherents keep thralls and salt wives, but don't regard them as slaves
+				# Some wilding clans north of the Wall also practice thralldom
 				add_doctrine = carn_doctrine_same_slavery_shunned
 			}
 			else = {
@@ -73,15 +81,28 @@ carn_agot_seed_slavery_doctrines_effect = {
 		else_if = {
 			limit = { religion = { is_in_family = rf_westerosi } }
 			if = {
-				limit = { religion = religion:old_gods_religion }
-				# Hostile faith slavery is crime in Old Gods faiths
-				add_doctrine = carn_doctrine_other_slavery_crime
+				limit = {
+					OR = {
+						religion = religion:drowned_god_religion
+						this = faith:old_gods_btw
+						this = faith:old_gods_frozen_shore
+						this = faith:magnaric
+					}
+				}
+				# Hostile faith slavery is accepted in Drowned God faiths and Old Gods faiths north of the Wall
+				# Drowned God adherents keep thralls and salt wives, but don't regard them as slaves
+				# Some wilding clans north of the Wall also practice thralldom
+				add_doctrine = carn_doctrine_other_slavery_accepted
 			}
 			else_if = {
-				limit = { religion = religion:drowned_god_religion }
-				# Hostile faith slavery is accepted in Drowned God faiths
-				# Drowned God adherents keep thralls and salt wives, but don't regard them as slaves
-				add_doctrine = carn_doctrine_other_slavery_accepted
+				limit = {
+					OR = {
+						this = faith:old_gods_south
+						this = faith:old_gods_vale
+					}
+				}
+				# Hostile faith slavery is crime in Old Gods faiths south of the Wall
+				add_doctrine = carn_doctrine_other_slavery_crime
 			}
 			else = {
 				# Hostile faith slavery is shunned in other Westerosi faiths
