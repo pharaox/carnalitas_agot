@@ -3185,7 +3185,7 @@ window = {
 
 										blockoverride "remaining_items"
 										{
-											visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )), '(int32)7' ))]"
+											visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )), '(int32)7' )]"
 											text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )), '(int32)7' )|=]"
 										}
 
@@ -3227,7 +3227,7 @@ window = {
 
 										blockoverride "remaining_items"
 										{
-											visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )), '(int32)7' ))]"
+											visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )), '(int32)7' )]"
 											text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )), '(int32)7' )|=]"
 										}
 
