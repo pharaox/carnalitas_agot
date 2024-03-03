@@ -90,7 +90,7 @@ pregnancy.0001 = {
 					}
 				}
 				modifier = { #Close family ups the chance to balance free inbreeding
-					add = 15 #5%
+					add = 5 #2%
 					scope:mother = {
 						any_close_or_extended_family_member = {
 							this = 	scope:real_father
@@ -98,7 +98,7 @@ pregnancy.0001 = {
 					}
 				}
 				modifier = { #And extra for even closer family members
-					add = 15 #10%
+					add = 10 #5%
 					scope:mother = {
 						any_close_family_member = {
 							this = scope:real_father
