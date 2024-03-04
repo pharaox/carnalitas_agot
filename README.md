@@ -81,3 +81,16 @@ The exceptions from the baseline are:
 * *Drowned God* faiths and *Old Gods* faiths north of the Wall, where it is accepted.
 
 Note that *Hostile Faith Slavery* can never be less accepted than *Righteous Faith Slavery*.
+
+## Links
+
+* [LoversLab](https://www.loverslab.com/files/file/32307-carnalitas-agot-compatibility/)
+* [GitHub Repository](https://github.com/pharaox/carnalitas_agot)
+
+If you like this mod, you may also consider my other mods:
+
+* [Carnalitas Slavery Reimagined](https://www.loverslab.com/files/file/25565-carnalitas-slavery-reimagined/), a comprehensive rework of the Carnalitas slavery system.
+* [Carnalitas Love Reimagined](https://www.loverslab.com/files/file/29200-carnalitas-love-reimagined/), a rework of the Carnalitas *Make Love* interaction and its related effects.
+* [Search & Trade Artifacts](https://steamcommunity.com/sharedfiles/filedetails/?id=2962238514), search for artifacts, buy them from other characters, and sell them to other characters.
+* [Travelers](https://steamcommunity.com/sharedfiles/filedetails/?id=3082182371), characters always travel to their home when it changes instead of teleporting.
+* [Active Courtiers](https://steamcommunity.com/sharedfiles/filedetails/?id=3157170996), courtiers search for spouses themselves for less micromanagement, stronger AI, and immersion.
