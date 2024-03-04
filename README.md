@@ -11,7 +11,7 @@ Load order:
 * Carnalitas AGOT Compatibility (this mod)
 * (other mods based on Carnalitas)
 
-Load order with [Carnalitas Slavery Reimagined](https://www.loverslab.com/files/file/25565-carnalitas-slavery-reimagined/):
+If you use the slavery system, it is strongly recommended to also use the [Carnalitas Slavery Reimagined](https://www.loverslab.com/files/file/25565-carnalitas-slavery-reimagined/) mod that also has a CSR AGOT compatibility patch available as a separate download. The load order in this case should be:
 
 * A Game of Thrones
 * Carnalitas
@@ -29,6 +29,10 @@ All changes to the character window made by Carnalitas and AGOT have been reconc
 
 All changes to other vanilla files made by Carnalitas and AGOT have been reconciled. The AGOT files have been taken as base, and Carnalitas changes have been applied on them. The effects are numerous and so are not listed here. One notable effect is that references to vanilla religions, faiths, culture, and titles present in the original Carnalitas no longer fill the logs with error messages.
 
+## Integration with AGOT Slavery System
+
+Starting with version 0.2.0, AGOT introduces its own slavery system. This system is still pretty rudimentary and mostly does not conflict with Carnalitas. This mod does not integrate of change any of its features. A better integration is available in the [CSR AGOT Compatibility](https://www.loverslab.com/files/file/25565-carnalitas-slavery-reimagined/) mod.
+
 ## Lore-based Slavery Doctrines
 
 This mod introduces a *A Song of Ice and Fire Lore* game rules setting for Carnalitas slavery doctrines, and makes it the default. If this setting is active, all faiths have accurate doctrines for *Righteous Faith Slavery* and *Hostile Faith Slavery* based on A Song of Ice and Fire lore research. The effect is similar to using the *Carnalitas Historical Slavery Doctrines* mod (available as a separate [Carnalitas](https://www.loverslab.com/files/file/14207-carnalitas-unified-sex-mod-framework-for-ck3/) download) in vanilla.
@@ -39,7 +43,7 @@ According to [Slavery](https://awoiaf.westeros.org/index.php/Slavery) and [R'hll
 
 * Both the *Old Gods* and the *Faith of the Seven* hold slavery to be an abomination. I take this to mean that slavery should be criminal in *Faith of the Seven* and *Old Gods* faiths south of the Wall.
 * The Ironborn (who are *Drowned God* adherents) keep thralls and salt wives, but don't regard them as slaves. I take this to mean that slavery should be either shunned or accepted in *Drowned God* faiths.
-* Some of the free folk clans who dwell in the lands north of the Wall also practice thralldom. I take this to mean that slavery should be either shunned or accepted in *Old Gods* faiths north of the Wall.
+* Some of the wildling clans north of the Wall also practice thralldom. I take this to mean that slavery should be either shunned or accepted in *Old Gods* faiths north of the Wall.
 * Slavery was widespread in Old Valyria and still is in the Free Cities, except for Braavos. I take this to mean that slavery should be accepted in *Valyrian* faiths.
 * Servants of the Temple of the Lord of Light in Volantis are slaves who were bought as children and trained. I take this to mean that slavery should be accepted in *Dawnbringer* faiths.
 
