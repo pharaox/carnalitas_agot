@@ -15,6 +15,18 @@ can_contract_disease_trigger = {
 	#Doesn't already have the trait
 	NOT = { has_trait = $DISEASE$ }
 
+	#Only get measles once
+	trigger_if = {
+		limit = { trait:$DISEASE$ = trait:measles }
+		NOT = { has_character_flag = measles_immunity }
+	}
+
+	#Only get bubonic plague once
+	trigger_if = {
+		limit = { trait:$DISEASE$ = trait:bubonic_plague }
+		NOT = { has_character_flag = bubonic_immunity }
+	}
+
 	save_temporary_scope_value_as = {
 		name = disease_type_for_trigger
 		value = flag:$DISEASE$

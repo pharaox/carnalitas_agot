@@ -2773,7 +2773,7 @@ birth.3011 = {
 #BIRTH: Father: Mother dies, child survives
 birth.3012 = {
 	type = character_event
-	title = birth.3012.t # Carnalitas: Adopted from Unofficial Patch
+	title = birth.3001.t
 	desc = {
 		desc = birth.3012.start.desc
 		first_valid = {
