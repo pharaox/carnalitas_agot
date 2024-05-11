@@ -21,15 +21,11 @@ pregnancy.0001 = {
 				#Less likely if health is bad
 				modifier = {
 					health <= fine_health
-					#AGOT Modified, childbirth rebalance
-					#add = -10
-					add = -15
+					add = -10
 				}
 				modifier = {
 					health <= poor_health
-					#AGOT Modified, childbirth rebalance
-					#add = -15
-					add = -20
+					add = -15
 				}
 
 				#More kids means less risk of complications!
@@ -62,6 +58,12 @@ pregnancy.0001 = {
 					dynasty = {
 						has_dynasty_perk = kin_legacy_3
 					}
+				}
+
+				#AGOT Added, guarantee if pre-configured
+				modifier = {
+					add = 10000
+					has_character_flag = birth_will_go_smoothly
 				}
 
 				add_character_flag = {
@@ -121,9 +123,7 @@ pregnancy.0001 = {
 					days = { 80 120 }
 				}
 			}
-			#AGOT Modified, childbirth rebalance
-			#3 = { #Child dies during delivery (this triggers when the birth "should" have gone down, since we don't want to create the baby)
-			15 = { #Child dies during delivery (this triggers when the birth "should" have gone down, since we don't want to create the baby)
+			3 = { #Child dies during delivery (this triggers when the birth "should" have gone down, since we don't want to create the baby)
 				modifier = { # Carnalitas game rule
 					factor = 0
 					carn_should_have_no_pregnancy_complications_trigger = yes
@@ -134,8 +134,7 @@ pregnancy.0001 = {
 				}
 			}
 			#AGOT Modified, childbirth rebalance
-			#2 = { #Mother dies
-			3 = { #Mother dies
+			2 = { #Mother dies
 				modifier = { #to keep players from dying excessively
 					add = -2
 					is_ai = no
@@ -144,14 +143,19 @@ pregnancy.0001 = {
 					factor = 0
 					carn_should_have_no_pregnancy_complications_trigger = yes
 				}
+
+				#AGOT Added, guarantee if pre-configured
+				modifier = {
+					add = 10000
+					has_character_flag = birth_mother_will_die
+				}
+
 				add_character_flag = { #Flags blocks other birth events
 					flag = birth_mother_will_die
 					days = 270
 				}
 			}
-			#AGOT Modified, childbirth rebalance
-			#2 = { #Mother and child dies (this triggers when the birth "should" have gone down, since we don't want to create the baby)
-			3 = { #Mother and child dies (this triggers when the birth "should" have gone down, since we don't want to create the baby)
+			2 = { #Mother and child dies (this triggers when the birth "should" have gone down, since we don't want to create the baby)
 				modifier = { #to keep players from dying excessively
 					add = -2
 					is_ai = no
@@ -178,14 +182,17 @@ pregnancy.0001 = {
 					factor = 0
 					carn_should_have_no_pregnancy_complications_trigger = yes
 				}
+				#AGOT Added, guarantee if pre-configured
+				modifier = {
+					add = 10000
+					has_character_flag = birth_child_will_become_sickly
+				}
 				add_character_flag = { #Flags blocks other birth events
 					flag = birth_child_will_become_sickly
 					days = 270
 				}
 			}
-			#AGOT Modified, childbirth rebalance
-			#5 = { #Ill mother (all other events happen as usual)
-			15 = { #Ill mother (all other events happen as usual)
+			5 = { #Ill mother (all other events happen as usual)
 				modifier = { #to keep players from dying excessively
 					add = -4
 					is_ai = no
@@ -193,6 +200,11 @@ pregnancy.0001 = {
 				modifier = { # Carnalitas game rule
 					factor = 0
 					carn_should_have_no_pregnancy_complications_trigger = yes
+				}
+				#AGOT Added, guarantee if pre-configured
+				modifier = {
+					add = 1000
+					has_character_flag = birth_mother_will_become_ill
 				}
 				add_character_flag = { #Flags blocks other birth events
 					flag = birth_mother_will_become_ill
@@ -215,6 +227,10 @@ pregnancy.0001 = {
 					add = 400
 					has_game_rule = agot_story_historical_events_weighted_outcomes
 					has_relation_historical_unfruitful_marriage = scope:real_father
+				}
+				modifier = {
+					add = 10000
+					agot_canon_children_should_block_pregnancy_trigger = yes
 				}
 				end_pregnancy = yes
 				pregnancy_cleanup_effect = yes
@@ -686,6 +702,11 @@ pregnancy.2001 = {
 				factor = 0
 				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
 			}
+			#AGOT Added, force mother of bastard canon children to confess to real father if configured to do so
+			modifier = {
+				add = 20000
+				has_character_flag = planning_to_confess_to_real_father
+			}
 		}
 	}
 
@@ -705,14 +726,24 @@ pregnancy.2001 = {
 				factor = 0
 				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
 			}
+			#AGOT Added, don't trigger suspicion if father is configured to not find out
+			modifier = {
+				add = 10000
+				scope:real_father = {
+					has_character_flag = agot_father_will_not_suspect_pregnancy
+				}
+			}
 		}
 	}
 
 	option = { #Attempt to terminate the pregnancy
 		name = pregnancy.2001.d
-		#AGOT Added, shouldn't trigger for paramours
+		#AGOT Added, shouldn't trigger for paramours or mothers of canon children
 		trigger = {
-			NOT = { has_relation_paramour = scope:real_father }
+			NOT = {
+				has_relation_paramour = scope:real_father
+				has_character_flag = agot_is_pregnant
+			}
 		}
 		pregnancy_termination_attempt_effect = yes
 		ai_chance = {
@@ -899,6 +930,11 @@ pregnancy.2002 = {
 				factor = 0
 				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
 			}
+			#AGOT Added, force mother of bastard canon children to confess to real father if configured to do so
+			modifier = {
+				add = 20000
+				has_character_flag = planning_to_confess_to_real_father
+			}
 		}
 		stress_impact = {
 			honest = medium_stress_impact_gain
@@ -924,6 +960,13 @@ pregnancy.2002 = {
 			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
 				factor = 0
 				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+			}
+			#AGOT Added, shouldn't trigger for fathers configured not to find out
+			modifier = {
+				add = 10000
+				scope:mother.pregnancy_assumed_father = {
+					has_character_flag = agot_father_will_not_suspect_pregnancy
+				}	
 			}
 		}
 	}
@@ -1142,9 +1185,11 @@ pregnancy.2050 = {
 			text = pregnancy.2001.a
 		}
 
-		#AGOT Added
+		#AGOT Added, shouldn't trigger for paramours
 		trigger = {
-			NOT = { has_relation_paramour = scope:real_father }
+			NOT = {
+				has_relation_paramour = scope:real_father
+			}
 		}
 
 		married_mother_pregnancy_effect = yes
@@ -1413,6 +1458,10 @@ pregnancy.3002 = {
 		name = pregnancy.3002.c
 		trigger = {
 			is_married = no
+			#AGOT Added, force mother of bastard canon children to confess to real father if configured to do so
+			NOT = {
+				scope:mother.pregnancy_assumed_father = { has_character_flag = agot_father_will_not_suspect_pregnancy }
+			}
 		}
 		save_scope_value_as = {
 			name = real_father_revealing
