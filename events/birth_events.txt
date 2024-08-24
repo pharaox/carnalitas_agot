@@ -2638,6 +2638,19 @@ birth.3001 = {
 		hidden_effect = {
 			random_dummy_gender_effect = yes
 			end_pregnancy = yes
+			#AGOT Added
+			if = {
+				limit = {
+					has_character_flag = stillborn_girl
+				}
+				dummy_female = { save_scope_as = dummy_gender }
+			}
+			else_if = {
+				limit = {
+					has_character_flag = stillborn_boy
+				}
+				dummy_male = { save_scope_as = dummy_gender }
+			}
 		}
 		if = {
 			limit = {
@@ -4492,12 +4505,25 @@ birth.9004 = {
 	right_portrait = {
 		character = scope:child
 		animation = happiness
+		#AGOT Added
+		trigger = {
+			scope:child = {
+				is_human = yes
+			}
+		}
 	}
 	#NAMING WIDGET
 	widgets = {
 		widget = {
+			# AGOT Modified
+			#is_shown = {
+			#	allow_naming_on_birth_of_child_trigger = { CHILD = scope:child }
+			#}
 			is_shown = {
-				allow_naming_on_birth_of_child_trigger = { CHILD = scope:child }
+				OR = { 
+					allow_naming_on_birth_of_child_trigger = { CHILD = scope:child }
+					allow_naming_of_dragon_trigger = { DRAGON = scope:child }
+				}
 			}
 			gui = "event_window_widget_name_child"
 			container = "dynamic_birth_name"

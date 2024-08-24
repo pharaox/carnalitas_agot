@@ -38,7 +38,7 @@ window = {
 		name = "main_content"
 		using = Window_Margins_Sidebar
 		#AGOT Added
-		using = agot_character_is_not_ruin
+		using = agot_character_standard
 
 		###############
 		# Character box
@@ -1092,7 +1092,7 @@ window = {
 				name = "house"
 				datacontext = "[Character.GetHouse]"
 				layoutpolicy_vertical = expanding
-				# AGOT MODIFIED
+				#AGOT Modified
 				#size = { 125 0 }
 				size = { 120 0 }
 
@@ -1458,9 +1458,13 @@ window = {
 							spacer = {
 								size = { 0 3 }
 							}
+							#AGOT Added; Displays relevant dragons in faux military breakdown
+							agot_dragon_army_composition = {}
 
 							vbox = {
-								visible = "[Character.HasLandedTitles]"
+								#AGOT Modified
+								# visible = "[Character.HasLandedTitles]"
+								visible = "[And(Character.HasLandedTitles,Not(GetScriptedGui('agot_can_see_dragon_military_view').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )))]"
 								tooltip = "[CharacterWindow.GetMilitaryStrengthTooltip]"
 								spacing = -2
 								min_width = 40
@@ -2555,6 +2559,13 @@ window = {
 								scissor = yes
 
 								hbox = {
+									#AGOT Added; Squires and Knights
+									agot_squire_relationship_row = {}
+									agot_knight_relationship_row = {}
+
+									#AGOT Added; Bodyguards and their targets
+									agot_bodyguard_relationship_row = {}
+									agot_bodyguard_target_relationship_row = {}
 
 									vbox_character_row_item = {
 										name = "wards"
@@ -2803,14 +2814,6 @@ window = {
 										blockoverride "expand_button" {}
 									}
 
-									#AGOT Added; Squires and Knights
-									agot_squire_relationship_row = {}
-									agot_knight_relationship_row = {}
-
-									#AGOT Added: Bodyguards and their targets
-									agot_bodyguard_relationship_row = {}
-									agot_bodyguard_target_relationship_row = {}
-
 									vbox_character_row_item = {
 										name = "guardian"
 										visible = "[Not(CharacterWindow.GetCharacter.IsAdult)]"
@@ -2976,11 +2979,16 @@ window = {
 
 								hbox = {
 									layoutpolicy_horizontal = expanding
+									#AGOT Added; Dragons
+									agot_dragons_relationship_row = {}
+									agot_friends_with_dragons = {}
 
 									vbox_character_row_relationship_item = {
 										name = "friends"
 										layoutpolicy_vertical = expanding
 										layoutpolicy_horizontal = expanding
+										#AGOT Added
+										visible = "[Not(GreaterThanOrEqualTo_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)1' ))]"
 
 										blockoverride "portrait_datamodel" {
 											datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
@@ -4144,8 +4152,10 @@ window = {
 			}
 		}
 	}
-	#AGOT Added, Ruins
+	#AGOT Added, Ruins, Dragons, Fake Death
 	agot_ruins_character_view = {}
+	agot_dragons_character_view = {}
+	agot_fake_death_character_view = {}
 }
 
 
@@ -4393,7 +4403,9 @@ types CharacterWindow
 		}
 
 		icon = {
-			visible = "[Not(Character.IsFemale)]"
+			#AGOT Modified
+			#visible = "[Not(Character.IsFemale)]"
+			visible = "[GetScriptedGui('agot_male_gender_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
 			size = { 20 20 }
 			framesize = { 40 40 }
 			frame = "[Character.GetSexualityFrame]"
@@ -4402,7 +4414,9 @@ types CharacterWindow
 		}
 
 		icon = {
-			visible = "[Character.IsFemale]"
+			#AGOT Modified
+			#visible = "[Character.IsFemale]"
+			visible = "[GetScriptedGui('agot_female_gender_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]" 
 			size = { 20 20 }
 			framesize = { 40 40 }
 			frame = "[Character.GetSexualityFrame]"
@@ -5172,6 +5186,8 @@ types CharacterWindow
 			allow_outside = yes
 			position = { 93 0 }
 			size = { 182 60 }
+			visible = "[Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_spouse').GetValue, '(CFixedPoint)0' ) )]"
+			using = Animation_ShowHide_Standard
 
 			flowcontainer = {
 				parentanchor = bottom

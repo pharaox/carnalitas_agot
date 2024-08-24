@@ -124,6 +124,11 @@ pregnancy.0001 = {
 				}
 			}
 			3 = { #Child dies during delivery (this triggers when the birth "should" have gone down, since we don't want to create the baby)
+				#AGOT Added, guarantee if pre-configured
+				modifier = {
+					add = 10000
+					has_character_flag = agot_birth_child_will_be_stillborn
+				}
 				modifier = { # Carnalitas game rule
 					factor = 0
 					carn_should_have_no_pregnancy_complications_trigger = yes
@@ -147,7 +152,7 @@ pregnancy.0001 = {
 				#AGOT Added, guarantee if pre-configured
 				modifier = {
 					add = 10000
-					has_character_flag = birth_mother_will_die
+					has_character_flag = agot_birth_mother_will_die
 				}
 
 				add_character_flag = { #Flags blocks other birth events

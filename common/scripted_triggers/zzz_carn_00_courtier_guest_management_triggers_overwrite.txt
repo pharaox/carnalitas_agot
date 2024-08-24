@@ -179,5 +179,6 @@
 		#AGOT Added
 		NOT = { has_trait = kingsguard }
 		NOT = { has_trait = nightswatch }
+		NOT = { has_trait = dragon }
 	}
 }
