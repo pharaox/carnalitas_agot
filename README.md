@@ -2,7 +2,7 @@
 
 This is a [Carnalitas](https://www.loverslab.com/files/file/14207-carnalitas-unified-sex-mod-framework-for-ck3/) compatibility patch for [A Game of Thrones](https://steamcommunity.com/sharedfiles/filedetails/?id=2962333032). It reconciles changes to the character window and other game files made by these two mods. It also adds AGOT lore-based slavery doctrines, similar to the *Carnalitas Historical Slavery Doctrines* mod.
 
-The latest version is compatible with CK3 1.12.x, Carnalitas 2.5, and AGOT 0.2.x.
+The latest version is compatible with CK3 1.12.x, Carnalitas 2.6, and AGOT 0.3.x.
 
 Load order:
 
