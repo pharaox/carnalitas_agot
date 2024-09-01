@@ -483,6 +483,14 @@ birth.0001 = {
 				}
 			}
 		}
+
+		#AGOT Added
+		scope:child = {
+			trigger_event = {
+				id = agot_dragon_egg_cradling.2011
+				days = 1
+			}
+		}
 	}
 }
 
