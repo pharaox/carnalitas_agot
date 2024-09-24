@@ -152,6 +152,14 @@ birth.0001 = {
 							scope:child.mother = { is_ai = yes }
 							factor = 0.25
 						}
+						#AGOT Added
+						modifier = {
+							any_in_global_list = {
+								variable = agot_born_canon_children_scopes
+								this = scope:child
+							}
+							factor = 0
+						}
 						trigger_event = birth.9002
 					}
 				}
@@ -313,6 +321,14 @@ birth.0001 = {
 								modifier = { # Event is less common for AI rulers.
 									scope:child.father = { is_ai = yes }
 									factor = 0.25
+								}
+								#AGOT Added
+								modifier = {
+									any_in_global_list = {
+										variable = agot_born_canon_children_scopes
+										this = scope:child
+									}
+									factor = 0
 								}
 								trigger_event = birth.9002
 							}
