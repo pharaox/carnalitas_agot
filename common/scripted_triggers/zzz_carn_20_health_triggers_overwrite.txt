@@ -27,6 +27,13 @@ can_contract_disease_trigger = {
 		NOT = { has_character_flag = bubonic_immunity }
 	}
 
+	#Young characters do not get gout
+	trigger_if = {
+		limit = { trait:$DISEASE$ = trait:gout_ridden }
+		current_weight >= 50
+		is_young_character = no
+	}
+
 	save_temporary_scope_value_as = {
 		name = disease_type_for_trigger
 		value = flag:$DISEASE$
@@ -128,6 +135,10 @@ can_contract_disease_trigger = {
 			NOT = { has_character_flag = disease_immunity_smallpox }
 		}
 		AND = {
+			scope:disease_type_for_trigger = flag:measles
+			NOT = { has_character_flag = disease_immunity_measles }
+		}
+		AND = {
 			scope:disease_type_for_trigger = flag:bubonic_plague
 			NOT = { has_character_flag = disease_immunity_bubonic_plague }
 		}
@@ -176,6 +187,14 @@ can_contract_disease_trigger = {
 		AND = {
 			has_character_flag = contraction_cooldown_great_pox
 			scope:disease_type_for_trigger = flag:great_pox
+		}
+		AND = {
+			has_character_flag = contraction_cooldown_dysentery
+			scope:disease_type_for_trigger = flag:dysentery
+		}
+		AND = {
+			has_character_flag = contraction_cooldown_ergotism
+			scope:disease_type_for_trigger = flag:ergotism
 		}
 	}
 }

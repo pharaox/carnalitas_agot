@@ -5,7 +5,7 @@
 ### Explicit
 
 * `common/character_interactions/00_grant_titles_interaction.txt`
-  * `grant_titles_interaction`
+  * Entire file
 * `common/scripted_effects/00_adultery_effects.txt`
   * `extramarital_sex_exposure_consequences_effect`
 * `common/scripted_effects/00_romance_effects.txt`
@@ -20,6 +20,7 @@
   * `should_be_naked_trigger`
 * `common/scripted_triggers/00_courtier_guest_management_triggers.txt`
   * `courtier_allowed_to_leave_trigger`
+  * `can_recruit_character_to_court_trigger`
 * `common/scripted_triggers/20_health_triggers.txt`
   * `can_contract_disease_trigger`
 * `events/birth_events.txt`
