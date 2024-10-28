@@ -56,7 +56,7 @@ grant_titles_interaction = {
 		#AGOT Added, NW should only grant land to NW, and non-NW shouldn't grant land to NW
 		trigger_if = {
 			limit = {
-				scope:actor = { has_government = nights_watch_government }
+				scope:actor = { government_has_flag = government_is_nw }
 			}
 			scope:recipient = { has_trait = nightswatch }
 		}
@@ -423,22 +423,30 @@ grant_titles_interaction = {
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_empire }
-						add = prev.massive_dynasty_prestige_gain # Carnalitas, fix vanilla issue
+						#AGOT Modified
+						#add = massive_dynasty_prestige_gain
+						add = prev.massive_dynasty_prestige_gain
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_kingdom }
-						add = prev.major_dynasty_prestige_gain # Carnalitas, fix vanilla issue
+						#AGOT Modified
+						#add = major_dynasty_prestige_gain
+						add = prev.major_dynasty_prestige_gain
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_duchy }
-						add = prev.medium_dynasty_prestige_gain # Carnalitas, fix vanilla issue
+						#AGOT Modified
+						#add = medium_dynasty_prestige_gain
+						add = prev.medium_dynasty_prestige_gain
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_county }
-						add = prev.minor_dynasty_prestige_gain # Carnalitas, fix vanilla issue
+						#AGOT Modified
+						#add = minor_dynasty_prestige_gain
+						add = prev.minor_dynasty_prestige_gain
 					}
 				}
 			}
@@ -519,7 +527,7 @@ grant_titles_interaction = {
 							}
 						}
 
-						###AGOT Added - ESR	
+						###AGOT Added - ESR
 						hidden_effect = {
 							if = {
 								limit = {
@@ -583,7 +591,7 @@ grant_titles_interaction = {
 							}
 						}
 
-						###AGOT Added - ESR	
+						###AGOT Added - ESR
 						hidden_effect = {
 							if = {
 								limit = {
@@ -647,7 +655,7 @@ grant_titles_interaction = {
 							}
 						}
 
-						###AGOT Added - ESR	
+						###AGOT Added - ESR
 						hidden_effect = {
 							if = {
 								limit = {
@@ -719,7 +727,7 @@ grant_titles_interaction = {
 							}
 						}
 
-						###AGOT Added - ESR	
+						###AGOT Added - ESR
 						hidden_effect = {
 							if = {
 								limit = {
@@ -858,7 +866,7 @@ grant_titles_interaction = {
 			}
 		}
 
-		###AGOT Added - ESR	
+		###AGOT Added - ESR
 		scope:recipient = {
 
 			#recipient's friends and lovers
@@ -1059,8 +1067,8 @@ grant_titles_interaction = {
 						var:current_rider ?= scope:actor
 						has_character_flag = in_dragonpit
 						var:pitted_dragon_location = scope:target
-					}	
-				}		
+					}
+				}
 			}
 			scope:actor = {
 				random_courtier = {
@@ -1607,7 +1615,7 @@ grant_governorship_interaction = {
 			government_allows = administrative
 			highest_held_title_tier >= tier_county
 		}
-		
+
 		trigger_if = {
 			limit = {
 				scope:actor = { is_ai = yes }
@@ -1695,7 +1703,7 @@ grant_governorship_interaction = {
 				text = promote_candidate_interaction_existing_holder_tt
 				this != scope:target.holder
 			}
-			
+
 			trigger_if = { # Governors can only be appointed to certain titles
 				limit = {
 					is_governor = yes
@@ -1845,7 +1853,7 @@ grant_governorship_interaction = {
 			custom_tooltip = {
 				text = GRANT_TITLES_ITEM_CANT_GIVE_ADMIN_PRIMARY
 				NOT = {
-					this = scope:actor.primary_title.title_capital_county.duchy
+					this = scope:actor.capital_province.duchy
 				}
 			}
 
@@ -2000,12 +2008,16 @@ grant_governorship_interaction = {
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_kingdom }
-						add = prev.major_dynasty_prestige_gain # Carnalitas, fix vanilla issue
+						#AGOT Modified
+						#add = major_dynasty_prestige_gain
+						add = prev.major_dynasty_prestige_gain
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_duchy }
-						add = prev.medium_dynasty_prestige_gain # Carnalitas, fix vanilla issue
+						#AGOT Modified
+						#add = medium_dynasty_prestige_gain
+						add = prev.medium_dynasty_prestige_gain
 					}
 				}
 			}
