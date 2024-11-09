@@ -311,6 +311,7 @@ pregnancy.1002 = {
 	override_background = { reference = bedchamber }
 	left_portrait = {
 		character = scope:mother
+		animation = love
 	}
 	right_portrait = {
 		character = root
@@ -972,7 +973,7 @@ pregnancy.2002 = {
 				add = 10000
 				scope:mother.pregnancy_assumed_father = {
 					has_character_flag = agot_father_will_not_suspect_pregnancy
-				}	
+				}
 			}
 		}
 	}
