@@ -852,6 +852,7 @@ pregnancy.2002 = {
 		}
 	}
 
+	#AGOT Added
 	option = { #Father is paramour
 		name = pregnancy.2002.paramour
 		trigger = {
