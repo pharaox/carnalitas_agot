@@ -4,6 +4,7 @@ can_contract_disease_trigger = {
 
 	# AGOT Added - check for humans only to not give non-humans health issues
 	is_human = yes
+	NOT = { has_character_flag = keep_imprisoned } # Duskendale
 	#
 
 	# Is not immune to disease
