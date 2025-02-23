@@ -62,6 +62,27 @@ carn_agot_seed_slavery_doctrines_effect = {
 			# They are evil
 			add_doctrine = carn_doctrine_same_slavery_accepted
 		}
+		else_if = {
+			limit = {
+				has_global_variable = essos_is_loaded # Legacy of Valyria
+				religion = { is_in_family = rf_further_east }
+			}
+			if = {
+				limit = {
+					religion = religion:moonsingers_religion
+				}
+				# Righteous faith slavery is crime in Moonsingers, the dominant religion in Braavos
+				add_doctrine = carn_doctrine_same_slavery_crime
+			}
+			else = {
+				# Righteous faith slavery is accepted in other Further East religions
+				add_doctrine = carn_doctrine_same_slavery_accepted
+			}
+		}
+		else = {
+			# Fallback, should not happen
+			add_doctrine = carn_doctrine_same_slavery_shunned
+		}
 	}
 
 	# Hostile faith slavery
@@ -130,6 +151,27 @@ carn_agot_seed_slavery_doctrines_effect = {
 			limit = { religion = { is_in_family = rf_winter } }
 			# Hostile faith slavery is acepted in Winter religions
 			add_doctrine = carn_doctrine_other_slavery_accepted
+		}
+		else_if = {
+			limit = {
+				has_global_variable = essos_is_loaded # Legacy of Valyria
+				religion = { is_in_family = rf_further_east }
+			}
+			if = {
+				limit = {
+					religion = religion:moonsingers_religion
+				}
+				# Hostile faith slavery is crime in Moonsingers, the dominant religion in Braavos
+				add_doctrine = carn_doctrine_other_slavery_crime
+			}
+			else = {
+				# Hostile faith slavery is accepted in other Further East religions
+				add_doctrine = carn_doctrine_other_slavery_accepted
+			}
+		}
+		else = {
+			# Fallback, should not happen
+			add_doctrine = carn_doctrine_other_slavery_shunned
 		}
 	}
 }
