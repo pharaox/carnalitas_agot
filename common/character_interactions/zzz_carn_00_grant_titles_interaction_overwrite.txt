@@ -247,6 +247,14 @@ grant_titles_interaction = {
 				scope:target = { has_variable = wagered_county }
 			}
 		}
+
+		#AGOT Added
+		custom_description = {
+			text = agot_grant_title_blocked
+			NOT = {
+				scope:target = { has_variable = agot_title_blocked_to_give_away }
+			}
+		}
 	}
 
 	auto_accept = yes
