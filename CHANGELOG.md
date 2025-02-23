@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.3.4
+
+* Adapted to AGOT 0.3.10.
+* Added compatibility with Legacy of Valyria (tested with 1.01.08). Make sure to load Legacy of Valyria **after** Carnalitas-based mods.
+
 ## Version 0.3.3
 
 * Adapted to AGOT 0.3.5 (for CK3 1.14.0.2).
