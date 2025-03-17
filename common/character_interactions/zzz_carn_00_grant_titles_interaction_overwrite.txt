@@ -320,7 +320,7 @@ grant_titles_interaction = {
 
 		if = {
 			limit = {
-				OR = { # Carnalitas: Adopted from Unofficial Patch
+				OR = {
 					any_in_list = {
 						list = target_titles
 						tier = tier_county
