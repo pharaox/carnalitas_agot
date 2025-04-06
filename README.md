@@ -2,7 +2,7 @@
 
 This is a [Carnalitas](https://www.loverslab.com/files/file/14207-carnalitas-unified-sex-mod-framework-for-ck3/) compatibility patch for [A Game of Thrones](https://steamcommunity.com/sharedfiles/filedetails/?id=2962333032). It reconciles changes to the character window and other game files made by these two mods. It also adds AGOT lore-based slavery doctrines, similar to the *Carnalitas Historical Slavery Doctrines* mod. It can also be used with the [Legacy of Valyria](https://steamcommunity.com/sharedfiles/filedetails/?id=3403938445) AGOT submod.
 
-The latest version is compatible with CK3 1.15.x, Carnalitas 2.9, AGOT 0.3.12+, and LoV 1.02+.
+The latest version is compatible with CK3 1.15.x, Carnalitas 2.9, AGOT 0.4.0+. **It is currently not compatible with LoV since there LoV is not yet compatible with AGOT 0.4.0.**
 
 Load order:
 
@@ -50,36 +50,33 @@ According to [Slavery](https://awoiaf.westeros.org/index.php/Slavery) and [R'hll
 
 There are no explicit mentions of slavery for *Rhyonish* faiths. On one hand they are of Eastern origin, on the other their adherents have historically suffered and fled from enslavement. I take this to mean that slavery should be shunned in *Rhyonish* faiths.
 
-In addition, the AGOT mod has its own slavery mechanics including slavery realm laws, slave buildings, and slave populations. The Free Cities of Lys, Myr, Pentos, and Tyrosh all start with realm laws allowing slavery. I regard this as a confirmation that that slavery should be accepted in religions that are widespread or originating from this part of Essos, which includes all *Valyrian* and *Dawnbringer* faiths.
+### AGOT Slavery Doctrines and Mechanics
+
+The AGOT mod has its own slavery mechanics including slavery realm laws, slave buildings, and slave populations. The Free Cities of Lys, Myr, Pentos, and Tyrosh all start with realm laws allowing slavery. I regard this as a confirmation that that slavery should be accepted in religions that are widespread or originating from this part of Essos, which includes all *Valyrian* and *Dawnbringer* faiths.
+
+In version 0.4.0, AGOT overhauled their faiths and introduced their own *Slavery* doctrines: *Criminal*, *Indentured Servitude*, *Thralls*, and *Accepted*. Currently they only influence if a ruler is allowed to pass the *Slavery Allowed* realm law.  This mod mostly maps the AGOT doctrines to the Carnalitas slavery doctrines, with some minor exceptions based on my own research. This mapping is very close to the doctrines seeded by this mod before version 0.4.0.
+
+Note that the AGOT *Slavery* doctrines are currently missing for *Old Gods* and *The Others* faiths. This will likely be fixed in a future AGOT version. The Carnalitas doctrines are still seeded appropriately for these faiths by this mod, based on the research cited above.
 
 ### Righteous Faith Slavery
 
-The baseline for *Righteous Faith Slavery* depending on religious family is as follows:
+The mapping of AGOT *Slavery* doctrines to Carnalitas *Righteous Faith Slavery* doctrines is as follows:
 
-* *Faith of the Seven*: criminal
-* *Westerosi*: criminal
-* *Dawnbringer*: accepted
-* *Valyrian*: accepted
-* *Rhyonish*: shunned
-* *Winter*: accepted
-
-The only exception from the baseline are *Drowned God* faiths and *Old Gods* faiths north of the Wall, where righteous faith slavery is shunned instead of criminal.
+* *Criminal*: *Criminal*
+* *Indentured Servitude*: *Shunned*
+* *Thralls*: *Shunned*
+* *Accepted*: *Accepted*
 
 ### Hostile Faith Slavery
 
-The baseline for *Hostile Faith Slavery* depending on religious family is as follows:
+The mapping of AGOT *Slavery* doctrines to Carnalitas *Hostile Faith Slavery* doctrines is as follows:
 
-* *Faith of the Seven*: criminal
-* *Westerosi*: shunned
-* *Dawnbringer*: accepted
-* *Valyrian*: accepted
-* *Rhyonish*: shunned
-* *Winter*: accepted
+* *Criminal*: *Criminal* (or *Shunned*, see below)
+* *Indentured Servitude*: *Shunned*
+* *Thralls*: *Accepted*
+* *Accepted*: *Accepted*
 
-The exceptions from the baseline are:
-
-* *Old Gods* faiths south of the Wall, where hostile faith slavery is criminal.
-* *Drowned God* faiths and *Old Gods* faiths north of the Wall, where it is accepted.
+Note that some religions or faiths have *Shunned* for this doctrine even though the AGOT doctrine is *Criminal*. Notably, these are *Lord of Light*, *Free Cities*, and *Valyrian*, faiths that are exceptions from the otherwise *Accepted* pattern (except the Braavosi faith since they are firmly anti-slavery).
 
 Note that *Hostile Faith Slavery* can never be less accepted than *Righteous Faith Slavery*.
 
