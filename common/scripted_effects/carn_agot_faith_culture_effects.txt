@@ -13,75 +13,151 @@ carn_agot_seed_slavery_doctrines_effect = {
 			}
 		}
 		if = {
-			limit = { religion = { is_in_family = rf_faith_of_the_seven } }
-			# Righteous faith slavery is crime in FOTS religions
-			add_doctrine = carn_doctrine_same_slavery_crime
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_westerosi } }
+			limit = { religion = { is_in_family = rf_sunset } }
 			if = {
-				limit = {
-					OR = {
-						religion = religion:drowned_god_religion
-						this = faith:old_gods_btw
-						this = faith:old_gods_frozen_shore
-						this = faith:magnaric
-					}
-				}
-				# Righteous faith slavery is shunned in Drowned God faiths and Old Gods faiths north of the Wall
+				limit = { religion = religion:the_seven_religion } # Faith of the Seven
+				# Righteous faith slavery is crime in FOTS faiths
+				add_doctrine = carn_doctrine_same_slavery_crime
+			}
+			else_if = {
+				limit = { religion = religion:the_ways_religion } # Drowned God and related
+				# Righteous faith slavery is shunned in Drowned God faiths
 				# Drowned God adherents keep thralls and salt wives, but don't regard them as slaves
-				# Some wilding clans north of the Wall also practice thralldom
 				add_doctrine = carn_doctrine_same_slavery_shunned
 			}
-			else = {
-				# Righteous faith slavery is crime in other Westerosi faiths
-				add_doctrine = carn_doctrine_same_slavery_crime
-			}
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_dawnbringers } }
-			# Righteous faith slavery is accepted in Dawnbringer religions
-			# Lord of Light adherents are known to use slaves as temple servants
-			add_doctrine = carn_doctrine_same_slavery_accepted
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_valyrian } }
-			# Righteous faith slavery is accepted in Valyrian religions
-			# Slavery was widespread in Old Valyria and still is in the Free Cities
-			add_doctrine = carn_doctrine_same_slavery_accepted
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_rhoynish } }
-			# Righteous faith slavery is shunned in Rhyonish religions
-			# They are eastern, yet they have suffered and fled from enslavement
-			add_doctrine = carn_doctrine_same_slavery_shunned
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_winter } }
-			# Righteous faith slavery is acepted in Winter religions
-			# They are evil
-			add_doctrine = carn_doctrine_same_slavery_accepted
-		}
-		else_if = {
-			limit = {
-				has_global_variable = essos_is_loaded # Legacy of Valyria
-				religion = { is_in_family = rf_further_east }
-			}
-			if = {
-				limit = {
-					religion = religion:moonsingers_religion
+			else_if = {
+				limit = { religion = religion:the_pact_religion } # Old Gods, including Beyond the Wall
+				if = {
+					limit = {
+						OR = {
+							this = faith:old_gods_btw_fnf
+							this = faith:old_gods_btw_sni
+							this = faith:old_gods_btw_mns
+							this = faith:old_gods_btw_pnv
+							this = faith:old_gods_btw_dnc
+							this = faith:old_gods_btw_sas
+							this = faith:old_gods_children
+						}
+					}
+					# Righteous faith slavery is shunned in Old Gods Beyond the Wall faiths
+					# Some wilding clans north of the Wall also practice thralldom
+					add_doctrine = carn_doctrine_same_slavery_shunned
 				}
-				# Righteous faith slavery is crime in Moonsingers, the dominant religion in Braavos
-				add_doctrine = carn_doctrine_same_slavery_crime
+				else = {
+					# Righteous faith slavery is crime in other Old Gods faiths
+					add_doctrine = carn_doctrine_same_slavery_crime
+				}
 			}
-			else = {
-				# Righteous faith slavery is accepted in other Further East religions
+			else_if = {
+				limit = { religion = religion:the_others_religion } # The Others
+				# Righteous faith slavery is accepted in The Others faiths
+				# They are evil
 				add_doctrine = carn_doctrine_same_slavery_accepted
 			}
 		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_azorian } }
+			if = {
+				limit = { religion = religion:the_rhllor_religion } # R'hllor, aka Lord of Light
+				if = {
+					limit = {
+						OR = {
+							this = faith:rhllor_fots
+							this = faith:rhllor_hyrkoon
+						}
+					}
+					# Righteous faith slavery is crime in the Red God (FOTS influence) and Hyrkoon faiths
+					add_doctrine = carn_doctrine_same_slavery_crime
+				}
+				else = {
+					# Righteous faith slavery is accepted in Lord of Light religions
+					# Lord of Light adherents are known to use slaves as temple servants
+					add_doctrine = carn_doctrine_same_slavery_accepted
+				}
+			}
+		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_western_essos } }
+			if = {
+				limit = { religion = religion:the_cults_religion } # Free Cities
+				if = {
+					limit = { this = faith:fc_pan_braavos }
+					# Righteous faith slavery is crime in Braavos faith
+					add_doctrine = carn_doctrine_same_slavery_crime
+				}
+				else_if = {
+					limit = {
+						OR = {
+							this = faith:fc_pan_faceless
+							this = faith:fc_pan_lorath
+						}
+					}
+					# Righteous faith slavery is crime in Many-Faced God and Lorath faiths
+					add_doctrine = carn_doctrine_same_slavery_crime
+				}
+				else = {
+					# Righteous faith slavery is accepted in other Free Cities faiths
+					# Slavery is widespread in most Free Cities, except Braavos and Lorath
+					add_doctrine = carn_doctrine_same_slavery_accepted
+				}
+			}
+			else_if = {
+				limit = { religion = religion:the_flames_religion } # Valyria
+				if = {
+					limit = { this = faith:fots_dragon }
+					# Righteous faith slavery is crime in Faith of the Dragons (FOTS influence)
+					add_doctrine = carn_doctrine_same_slavery_crime
+				}
+				else = {
+					# Righteous faith slavery is accepted in other Valyrian faiths
+					# Slavery was widespread in Old Valyria and still is in the Free Cities
+					add_doctrine = carn_doctrine_same_slavery_accepted
+				}
+			}
+			else_if = {
+				limit = { religion = religion:the_mother_religion } # Mother Rhoyne
+				# Righteous faith slavery is crime in Rhyonish faiths
+				# They are eastern, yet they have suffered and fled from enslavement
+				add_doctrine = carn_doctrine_same_slavery_crime
+			}
+		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_southseas } } 
+			if = {
+				limit = {
+					OR = {
+						religion = religion:the_chosen_religion # Naath
+						religion = religion:the_temples_religion  # Summer Islands 
+					}
+				}
+				# Righteous faith slavery is crime in Naath and Summer Islands faiths
+				# Naath are mentioned only as victims to slavery
+				# Slavery is strictly outlawed in the Summer Islands
+				add_doctrine = carn_doctrine_same_slavery_crime
+			}
+			else_if = {
+				limit = {
+					OR = {
+						religion = religion:the_orders_religion # Jade Sea
+						religion = religion:the_shanties_religion # Sothoryos
+					}
+				}
+				# Righteous faith slavery is accepted in Jade Sea and Sothoryos faiths
+				# They are mentioned as traders, pirates, and slavers
+				add_doctrine = carn_doctrine_same_slavery_accepted
+			}
+		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_grasslands } } # First Men, Dothraki, Ghis, Lhazar, Qaathi, Ibben, and other Essosi Grass Sea 
+			carn_agot_add_same_slavery_doctrine_effect = yes
+		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_dawn } } # Yi Ti, Jogos Nhai, and other far-eastern Essosi
+			carn_agot_add_same_slavery_doctrine_effect = yes
+		}
 		else = {
 			# Fallback, should not happen
-			add_doctrine = carn_doctrine_same_slavery_shunned
+			carn_agot_add_same_slavery_doctrine_effect = yes
 		}
 	}
 
@@ -95,83 +171,195 @@ carn_agot_seed_slavery_doctrines_effect = {
 			}
 		}
 		if = {
-			limit = { religion = { is_in_family = rf_faith_of_the_seven } }
-			# Hostile faith slavery is crime in FOTS religions
-			add_doctrine = carn_doctrine_other_slavery_crime
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_westerosi } }
+			limit = { religion = { is_in_family = rf_sunset } }
 			if = {
-				limit = {
-					OR = {
-						religion = religion:drowned_god_religion
-						this = faith:old_gods_btw
-						this = faith:old_gods_frozen_shore
-						this = faith:magnaric
-					}
-				}
-				# Hostile faith slavery is accepted in Drowned God faiths and Old Gods faiths north of the Wall
+				limit = { religion = religion:the_seven_religion } # Faith of the Seven
+				# Hostile faith slavery is crime in FOTS faiths
+				add_doctrine = carn_doctrine_other_slavery_crime
+			}
+			else_if = {
+				limit = { religion = religion:the_ways_religion } # Drowned God and related
+				# Hostile faith slavery is accepted in Drowned God faiths
 				# Drowned God adherents keep thralls and salt wives, but don't regard them as slaves
-				# Some wilding clans north of the Wall also practice thralldom
 				add_doctrine = carn_doctrine_other_slavery_accepted
 			}
 			else_if = {
-				limit = {
-					OR = {
-						this = faith:old_gods_south
-						this = faith:old_gods_vale
+				limit = { religion = religion:the_pact_religion } # Old Gods, including Beyond the Wall
+				if = {
+					limit = {
+						OR = {
+							this = faith:old_gods_btw_fnf
+							this = faith:old_gods_btw_sni
+							this = faith:old_gods_btw_mns
+							this = faith:old_gods_btw_pnv
+							this = faith:old_gods_btw_dnc
+							this = faith:old_gods_btw_sas
+							this = faith:old_gods_children
+						}
 					}
+					# Hostile faith slavery is accepted in Old Gods Beyond the Wall faiths
+					# Some wilding clans north of the Wall also practice thralldom
+					add_doctrine = carn_doctrine_other_slavery_accepted
 				}
-				# Hostile faith slavery is crime in Old Gods faiths south of the Wall
-				add_doctrine = carn_doctrine_other_slavery_crime
+				else = {
+					# Hostile faith slavery is crime in other Old Gods faiths
+					add_doctrine = carn_doctrine_other_slavery_crime
+				}
 			}
-			else = {
-				# Hostile faith slavery is shunned in other Westerosi faiths
-				# No sources, compromise between Old Gods and Drowned God
+			else_if = {
+				limit = { religion = religion:the_others_religion } # The Others
+				# Hostile faith slavery is accepted in The Others faiths
+				# They are evil
+				add_doctrine = carn_doctrine_other_slavery_accepted
+			}
+		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_azorian } }
+			if = {
+				limit = { religion = religion:the_rhllor_religion } # R'hllor, aka Lord of Light
+				if = {
+					limit = {
+						OR = {
+							this = faith:rhllor_fots
+							this = faith:rhllor_hyrkoon
+						}
+					}
+					# Hotile faith slavery is shunned in the Red God (FOTS influence) and Hyrkoon faiths
+					add_doctrine = carn_doctrine_other_slavery_shunned
+				}
+				else = {
+					# Hostile faith slavery is accepted in Lord of Light religions
+					# Lord of Light adherents are known to use slaves as temple servants
+					add_doctrine = carn_doctrine_other_slavery_accepted
+				}
+			}
+		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_western_essos } }
+			if = {
+				limit = { religion = religion:the_cults_religion } # Free Cities
+				if = {
+					limit = { this = faith:fc_pan_braavos }
+					# Hostile faith slavery is crime in Braavos faith
+					add_doctrine = carn_doctrine_other_slavery_crime
+				}
+				else_if = {
+					limit = {
+						OR = {
+							this = faith:fc_pan_faceless
+							this = faith:fc_pan_lorath
+						}
+					}
+					# Hostile faith slavery is shunned in Many-Faced God and Lorath faiths
+					add_doctrine = carn_doctrine_other_slavery_shunned
+				}
+				else = {
+					# Hostile faith slavery is accepted in other Free Cities faiths
+					# Slavery is widespread in most Free Cities, except Braavos and Lorath
+					add_doctrine = carn_doctrine_other_slavery_accepted
+				}
+			}
+			else_if = {
+				limit = { religion = religion:the_flames_religion } # Valyria
+				if = {
+					limit = { this = faith:fots_dragon }
+					# Hostile faith slavery is shunned in Faith of the Dragons (FOTS influence)
+					add_doctrine = carn_doctrine_other_slavery_shunned
+				}
+				else = {
+					# Hostile faith slavery is accepted in other Valyrian faiths
+					# Slavery was widespread in Old Valyria and still is in the Free Cities
+					add_doctrine = carn_doctrine_other_slavery_accepted
+				}
+			}
+			else_if = {
+				limit = { religion = religion:the_mother_religion } # Mother Rhoyne
+				# Hostile faith slavery is shunned in Rhyonish faiths
+				# They are eastern, yet they have suffered and fled from enslavement
 				add_doctrine = carn_doctrine_other_slavery_shunned
 			}
 		}
 		else_if = {
-			limit = { religion = { is_in_family = rf_dawnbringers } }
-			# Hostile faith slavery is accepted in Dawnbringer religions
-			add_doctrine = carn_doctrine_other_slavery_accepted
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_valyrian } }
-			# Hostile faith slavery is accepted in Valyrian religions
-			add_doctrine = carn_doctrine_other_slavery_accepted
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_rhoynish } }
-			# Hostile faith slavery is shunned in Rhyonish religions
-			# They are eastern, yet they have suffered and fled from enslavement
-			add_doctrine = carn_doctrine_other_slavery_shunned
-		}
-		else_if = {
-			limit = { religion = { is_in_family = rf_winter } }
-			# Hostile faith slavery is acepted in Winter religions
-			add_doctrine = carn_doctrine_other_slavery_accepted
-		}
-		else_if = {
-			limit = {
-				has_global_variable = essos_is_loaded # Legacy of Valyria
-				religion = { is_in_family = rf_further_east }
-			}
+			limit = { religion = { is_in_family = rf_southseas } } 
 			if = {
 				limit = {
-					religion = religion:moonsingers_religion
+					OR = {
+						religion = religion:the_chosen_religion # Naath
+						religion = religion:the_temples_religion  # Summer Islands 
+					}
 				}
-				# Hostile faith slavery is crime in Moonsingers, the dominant religion in Braavos
+				# Hostile faith slavery is crime in Naath and Summer Islands faiths
+				# Naath are mentioned only as victims to slavery
+				# Slavery is strictly outlawed in the Summer Islands
 				add_doctrine = carn_doctrine_other_slavery_crime
 			}
-			else = {
-				# Hostile faith slavery is accepted in other Further East religions
+			else_if = {
+				limit = {
+					OR = {
+						religion = religion:the_orders_religion # Jade Sea
+						religion = religion:the_shanties_religion # Sothoryos
+					}
+				}
+				# Righteous faith slavery is accepted in Jade Sea and Sothoryos faiths
+				# They are mentioned as traders, pirates, and slavers
 				add_doctrine = carn_doctrine_other_slavery_accepted
 			}
 		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_grasslands } } # First Men, Dothraki, Ghis, Lhazar, Qaathi, Ibben, and other Essosi Grass Sea 
+			carn_agot_add_other_slavery_doctrine_effect = yes
+		}
+		else_if = {
+			limit = { religion = { is_in_family = rf_dawn } } # Yi Ti, Jogos Nhai, and other far-eastern Essosi
+			carn_agot_add_other_slavery_doctrine_effect = yes
+		}
 		else = {
 			# Fallback, should not happen
-			add_doctrine = carn_doctrine_other_slavery_shunned
+			carn_agot_add_other_slavery_doctrine_effect = yes
 		}
+	}
+}
+
+carn_agot_add_same_slavery_doctrine_effect = {
+	if = {
+		limit = { has_doctrine = doctrine_slavery_crime }
+		add_doctrine = carn_doctrine_same_slavery_crime
+	}
+	else_if = {
+		limit = { has_doctrine = doctrine_slavery_indentured }
+		add_doctrine = carn_doctrine_same_slavery_shunned
+	}
+	else_if = {
+		limit = { has_doctrine = doctrine_slavery_thralls }
+		add_doctrine = carn_doctrine_same_slavery_shunned
+	}
+	else_if = {
+		limit = { has_doctrine = doctrine_slavery_accepted }
+		add_doctrine = carn_doctrine_same_slavery_accepted
+	}
+	else = {
+		add_doctrine = carn_doctrine_same_slavery_shunned
+	}
+}
+
+carn_agot_add_other_slavery_doctrine_effect = {
+	if = {
+		limit = { has_doctrine = doctrine_slavery_crime }
+		add_doctrine = carn_doctrine_other_slavery_crime
+	}
+	else_if = {
+		limit = { has_doctrine = doctrine_slavery_indentured }
+		add_doctrine = carn_doctrine_other_slavery_shunned
+	}
+	else_if = {
+		limit = { has_doctrine = doctrine_slavery_thralls }
+		add_doctrine = carn_doctrine_other_slavery_accepted
+	}
+	else_if = {
+		limit = { has_doctrine = doctrine_slavery_accepted }
+		add_doctrine = carn_doctrine_other_slavery_accepted
+	}
+	else = {
+		add_doctrine = carn_doctrine_other_slavery_shunned
 	}
 }
