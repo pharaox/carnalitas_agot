@@ -2183,38 +2183,6 @@ window = {
 					}
 				}
 
-				### SPOUSES EXPANDED
-				scrollbox = {
-					name = "family_spouses_expanded"
-					visible = "[CharacterWindow.IsRelationExpanded( 'spouses' )]"
-					size = { 100% 100% }
-
-					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
-							name = "spouses"
-							margin_top = 10
-							spacing = 5
-
-
-							blockoverride "portrait_datamodel" {
-								datamodel = "[CharacterWindow.GetSecondarySpouses]"
-							}
-
-							blockoverride "header_text"
-							{
-								text = "carn_cv_spouses_heading"
-							}
-
-							blockoverride "expand_button_inside" {
-								onclick = "[CharacterWindow.ToggleExpandedRelation( 'spouses' )]"
-								down = "[CharacterWindow.IsRelationExpanded( 'spouses' )]"
-							}
-
-							blockoverride "gridbox_slots" {}
-						}
-					}
-				}
-
 				### CONCUBINES EXPANDED
 				scrollbox = {
 					name = "family_concubines_expanded"
