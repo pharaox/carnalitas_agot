@@ -2548,6 +2548,24 @@ window = {
 
 										blockoverride "expand_button" {}
 									}
+
+									vbox_character_row_item = {
+										name = "slave_owner"
+										visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'slave_owner' ) )), '(int32)0' )]"
+										layoutpolicy_vertical = expanding
+
+										blockoverride "portrait_datamodel" {
+											datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'slave_owner' ) )]"
+										}
+
+										blockoverride "header_text"
+										{
+											text = "[slave_owner|E]"
+										}
+
+										blockoverride "expand_button" {}
+									}
+
 									vbox_character_row_relationship_item = {
 										name = "lovers"
 										# show if we're adults and we DON'T either have a lot of lovers or a lot of wards
