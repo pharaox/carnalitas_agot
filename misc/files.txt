@@ -1,4 +1,5 @@
 common/character_interactions/00_grant_titles_interaction.txt
+common/religion/religions/00_agot_the_pact.txt
 common/scripted_effects/00_adultery_effects.txt
 common/scripted_effects/00_romance_effects.txt
 common/scripted_effects/00_secret_effects.txt

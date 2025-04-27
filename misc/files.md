@@ -6,6 +6,8 @@
 
 * `common/character_interactions/00_grant_titles_interaction.txt`
   * Entire file
+* `common/religion/religions/00_agot_the_pact.txt`
+  * Entire file
 * `common/scripted_effects/00_adultery_effects.txt`
   * `extramarital_sex_exposure_consequences_effect`
 * `common/scripted_effects/00_romance_effects.txt`
