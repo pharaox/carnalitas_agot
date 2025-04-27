@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.5.2
+
+* Adapted to AGOT 0.4.1.
+* Added the slave owner to the *Relations* tab of the character window for slaves (as in vanilla Carnalitas).
+* Changed *Old Gods Beyond the Wall* AGOT slavery doctrines to *Thralls* to better correspond to the lore.
+
 ## Version 0.5.1
 
 * Adapted to AGOT 0.4.0.2.

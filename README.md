@@ -59,7 +59,7 @@ The AGOT mod has its own slavery mechanics including slavery realm laws, slave b
 
 In version 0.4.0, AGOT overhauled their faiths and introduced their own *Slavery* doctrines: *Criminal*, *Indentured Servitude*, *Thralls*, and *Accepted*. Currently they only influence if a ruler is allowed to pass the *Slavery Allowed* realm law.  This mod mostly maps the AGOT doctrines to the Carnalitas slavery doctrines, with some minor exceptions based on my own research. This mapping is very close to the doctrines seeded by this mod before version 0.4.0.
 
-Note that the AGOT *Slavery* doctrines are currently missing for *Old Gods* and *The Others* faiths. This will likely be fixed in a future AGOT version. The Carnalitas doctrines are still seeded appropriately for these faiths by this mod, based on the research cited above.
+The only exception is for AGOT *Slavery* doctrines for *Old Gods Beyound the Wall* faiths. According to the research cited above, the correct doctrine for these faiths should be *Thralls*, not *Criminal* as currently in AGOT. Besides seeding the correct Carnalitas doctrines, this mod also changes the AGOT doctrine for these faiths accordingly.
 
 ### Righteous Faith Slavery
 
