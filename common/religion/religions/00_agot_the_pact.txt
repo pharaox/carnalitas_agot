@@ -226,7 +226,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_faith
+			doctrine = doctrine_syncretism_the_faith
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -274,7 +274,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_faith
+			doctrine = doctrine_syncretism_the_faith
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -489,7 +489,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_encouraged
-			doctrine = doctrine_syncreticism_the_faith
+			doctrine = doctrine_syncretism_the_faith
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -704,7 +704,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_faith
+			doctrine = doctrine_syncretism_the_faith
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -919,7 +919,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_faith
+			doctrine = doctrine_syncretism_the_faith
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -1134,7 +1134,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_faith
+			doctrine = doctrine_syncretism_the_faith
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -1349,7 +1349,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_faith
+			doctrine = doctrine_syncretism_the_faith
 
 			#Marriage Doctrines
 			doctrine = doctrine_concubines
@@ -1564,7 +1564,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_faith
+			doctrine = doctrine_syncretism_the_faith
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -1782,7 +1782,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_first_gods
+			doctrine = doctrine_syncretism_the_first_gods
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -1997,7 +1997,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_first_gods
+			doctrine = doctrine_syncretism_the_first_gods
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -2212,7 +2212,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_flames
+			doctrine = doctrine_syncretism_the_flames
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -2426,7 +2426,7 @@
 			doctrine = doctrine_temporal_head
 			doctrine = doctrine_pantheon_old_gods_magnar
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_first_gods
+			doctrine = doctrine_syncretism_the_first_gods
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -2641,7 +2641,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_churches
+			doctrine = doctrine_syncretism_the_churches
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -2855,7 +2855,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_syncreticism_the_venerations
+			doctrine = doctrine_syncretism_the_venerations
 
 			#Marriage Doctrines
 			doctrine = doctrine_monogamy
@@ -3067,7 +3067,7 @@
 			doctrine = doctrine_no_head
 			doctrine = doctrine_pantheon_old_gods
 			doctrine = doctrine_pilgrimage_forbidden
-			doctrine = doctrine_no_syncreticism
+			doctrine = doctrine_no_syncretism
 
 			#Marriage Doctrines
 			doctrine = doctrine_polygamy
