@@ -5,7 +5,12 @@
 ### Explicit
 
 * `common/character_interactions/00_grant_titles_interaction.txt`
+  * `grant_titles_interaction`
+  * `grant_governorship_interaction`
+* `common/courtier_guest_management/guest_management.txt`
   * Entire file
+* `common/schemes/scheme_types/abduct_scheme.txt`
+  * `abduct`
 * `common/religion/religions/00_agot_the_pact.txt`
   * Entire file
 * `common/scripted_effects/00_adultery_effects.txt`
@@ -29,5 +34,9 @@
   * Entire file
 * `events/pregnancy_events.txt`
   * Entire file
+* `gui/shared/buttons_icons.gui`
+  * Entire file
 * `gui/window_character.gui`
+  * Entire file
+* `gui/window_court.gui`
   * Entire file
