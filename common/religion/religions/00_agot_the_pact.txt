@@ -1,6 +1,7 @@
 ﻿the_pact_religion = {
 	family = rf_sunset
 	doctrine = sunset_hostility_doctrine
+	graphical_faith = old_gods_gfx
 
 	pagan_roots = yes
 
@@ -248,6 +249,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			color = { 40 80 20 }
 
@@ -296,6 +298,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			#Special Doctrine
 			doctrine = special_doctrine_agot_uncreated
@@ -511,6 +514,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			#Special Doctrine
 			doctrine = special_doctrine_agot_uncreated
@@ -726,6 +730,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			#Special Doctrine
 			doctrine = special_doctrine_agot_uncreated
@@ -941,6 +946,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			#Special Doctrine
 			doctrine = special_doctrine_agot_uncreated
@@ -1156,6 +1162,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			#Special Doctrine
 			doctrine = special_doctrine_agot_uncreated
@@ -1371,6 +1378,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			#Special Doctrine
 			doctrine = special_doctrine_agot_uncreated
@@ -1586,6 +1594,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			#Special Doctrine
 			doctrine = special_doctrine_agot_uncreated
@@ -1804,6 +1813,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			color = { 100 100 50 }
 
@@ -2019,6 +2029,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			color = { 100 100 80 }
 
@@ -2234,6 +2245,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			color = { 85 85 45 }
 
@@ -2409,6 +2421,7 @@
 		}
 		old_gods_btw_pnv = {
 			icon = oldgods_btw_bronze
+			religious_head = k_magnar_of_thenn
 			reformed_icon = oldgods_btw_bronze
 			doctrine = unreformed_faith_doctrine
 
@@ -2448,6 +2461,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_disallowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 
 			color = { 130 90 80 }
@@ -2663,6 +2677,7 @@
 			doctrine = doctrine_clerical_gender_male_only
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			color = { 65 65 40 }
 
@@ -2877,6 +2892,7 @@
 			doctrine = doctrine_clerical_gender_female_only
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			color = { 110 110 60 }
 
@@ -3089,6 +3105,7 @@
 			doctrine = doctrine_clerical_gender_either
 			doctrine = doctrine_clerical_marriage_allowed
 			doctrine = doctrine_clerical_succession_temporal_appointment
+			doctrine = doctrine_no_anointment
 
 			color = { 55 120 30 }
 

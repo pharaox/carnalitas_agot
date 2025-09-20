@@ -64,7 +64,12 @@ grant_titles_interaction = {
 			limit = {
 				scope:actor = { government_has_flag = government_is_nw }
 			}
-			scope:recipient = { has_trait = nightswatch }
+			scope:recipient = {
+				has_trait = nightswatch
+				NOT = {
+					has_title = title:d_nw_landless_first_ranger
+				}
+			}
 		}
 		trigger_else = {
 			NOT = {
@@ -135,6 +140,59 @@ grant_titles_interaction = {
 		scope:actor = {
 			any_held_title = {
 				count > 1
+			}
+		}
+
+		#AGOT Added
+		trigger_if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+				}
+			}
+			custom_tooltip = {
+				text = grant_only_one_settlement_at_a_time
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+					count < 2
+				}
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+				}
+			}
+			custom_tooltip = {
+				text = recipient_at_settlement_limit
+				scope:recipient = { agot_at_settlement_limit = no }
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+					save_temporary_scope_as = target_title
+				}
+			}
+			custom_tooltip = {
+				text = recipient_needs_to_border_settlement_county
+				scope:target_title = {
+					any_neighboring_county = {
+						holder = scope:recipient
+					}
+				}
 			}
 		}
 	}
@@ -291,6 +349,23 @@ grant_titles_interaction = {
 			NOT = {
 				scope:target = { has_variable = agot_title_blocked_to_give_away }
 			}
+		}
+
+		#AGOT Added
+		trigger_if = { #Wilderness counties cannot be granted to vassals
+			limit = { scope:target = { exists = title_province } }
+			scope:target = {
+				NOT = {
+					title_province ?= { has_building = wilderness_01 }
+				}
+			}
+		}
+
+
+		#AGOT Added
+		trigger_if = {
+			limit = { scope:target.title_province ?= { has_holding_type = settlement_holding } }
+			scope:recipient = { above_settlement_limit = no }
 		}
 	}
 
@@ -590,39 +665,9 @@ grant_titles_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_county } }
 
-						###AGOT Added - ESR
-						hidden_effect = {
-							if = {
-								limit = {
-									NAND = {
-										is_close_family_of = scope:actor
-										any_heir_title = {
-											this = scope:this_title
-											place_in_line_of_succession = {
-												target = scope:recipient
-												value <= 3
-											}
-										}
-									}
-								}
-								every_spouse = {
-									limit = { NOT = { this = scope:actor } }
-									add_opinion = {
-										target = scope:actor
-										modifier = esr_grant_family_county
-									}
-								}
-
-								every_close_family_member ={
-									limit = { NOT = { this = scope:actor } }
-									add_opinion = {
-										target = scope:actor
-										modifier = esr_grant_family_county
-									}
-								}
-							}
-						}
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
 
@@ -654,39 +699,9 @@ grant_titles_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_duchy } }
 
-						###AGOT Added - ESR
-						hidden_effect = {
-							if = {
-								limit = {
-									NAND = {
-										is_close_family_of = scope:actor
-										any_heir_title = {
-											this = scope:this_title
-											place_in_line_of_succession = {
-												target = scope:recipient
-												value <= 3
-											}
-										}
-									}
-								}
-								every_spouse = {
-									limit = { NOT = { this = scope:actor } }
-									add_opinion = {
-										target = scope:actor
-										modifier = esr_grant_family_duchy
-									}
-								}
-
-								every_close_family_member ={
-									limit = { NOT = { this = scope:actor } }
-									add_opinion = {
-										target = scope:actor
-										modifier = esr_grant_family_duchy
-									}
-								}
-							}
-						}
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
 
@@ -718,39 +733,9 @@ grant_titles_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_kingdom } }
 
-						###AGOT Added - ESR
-						hidden_effect = {
-							if = {
-								limit = {
-									NAND = {
-										is_close_family_of = scope:actor
-										any_heir_title = {
-											this = scope:this_title
-											place_in_line_of_succession = {
-												target = scope:recipient
-												value <= 2
-											}
-										}
-									}
-								}
-								every_spouse = {
-									limit = { NOT = { this = scope:actor } }
-									add_opinion = {
-										target = scope:actor
-										modifier = esr_grant_family_kingdom
-									}
-								}
-
-								every_close_family_member ={
-									limit = { NOT = { this = scope:actor } }
-									add_opinion = {
-										target = scope:actor
-										modifier = esr_grant_family_kingdom
-									}
-								}
-							}
-						}
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
 
@@ -790,39 +775,9 @@ grant_titles_interaction = {
 								add_joined_faction_discontent = -60
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_empire } }
 
-						###AGOT Added - ESR
-						hidden_effect = {
-							if = {
-								limit = {
-									NAND = {
-										is_close_family_of = scope:actor
-										any_heir_title = {
-											this = scope:this_title
-											place_in_line_of_succession = {
-												target = scope:recipient
-												value <= 2
-											}
-										}
-									}
-								}
-								every_spouse = {
-									limit = { NOT = { this = scope:actor } }
-									add_opinion = {
-										target = scope:actor
-										modifier = esr_grant_family_empire
-									}
-								}
-
-								every_close_family_member ={
-									limit = { NOT = { this = scope:actor } }
-									add_opinion = {
-										target = scope:actor
-										modifier = esr_grant_family_empire
-									}
-								}
-							}
-						}
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
 				}
@@ -930,101 +885,8 @@ grant_titles_interaction = {
 			}
 		}
 
-		###AGOT Added - ESR
-		scope:recipient = {
-
-			#recipient's friends and lovers
-			every_relation = {
-				type = friend
-				limit = {
-					NOR = {
-						this = scope:recipient
-						this = scope:actor
-						has_relation_best_friend = scope:recipient
-						has_trait = callous
-						has_trait = arbitrary
-					}
-				}
-				add_to_list = recipient_close_relations_list
-			}
-			every_relation = {
-				type = lover
-				limit = {
-					NOR = {
-						this = scope:recipient
-						this = scope:actor
-						has_relation_soulmate = scope:recipient
-						is_in_list = recipient_close_relations_list
-					}
-				}
-				add_to_list = recipient_close_relations_list
-			}
-			if = {
-				limit = {
-					any_in_list = {
-						list = recipient_close_relations_list
-						always = yes
-					}
-				}
-				every_in_list = {
-					list = recipient_close_relations_list
-					custom = all_friends_and_lovers
-					add_opinion = {
-						target = scope:actor
-						modifier = esr_grant_close_relation_opinion
-					}
-				}
-			}
-
-			#recipient's best friend and soulmate
-			every_relation = {
-				type = best_friend
-				limit = { NOT = {this = scope:actor}}
-				add_opinion = {
-					target = scope:actor
-					modifier = esr_grant_best_friend
-				}
-			}
-
-			every_relation = {
-				type = soulmate
-				limit = { NOT = {this = scope:actor}}
-				add_opinion = {
-					target = scope:actor
-					modifier = esr_grant_soulmate
-				}
-			}
-
-			#recipient's rivals and nemesis
-			every_relation = {
-				type = rival
-				limit = {
-					NOR = {
-						this = scope:actor
-						has_relation_nemesis = scope:recipient
-					}
-				}
-				custom = esr_rivals_execution
-				add_opinion = {
-					target = scope:actor
-					modifier = esr_grant_rival
-				}
-			}
-
-			every_relation = {
-				type = nemesis
-
-				limit = {
-					NOT = {
-						this = scope:actor
-					}
-				}
-				add_opinion = {
-					target = scope:actor
-					modifier = esr_grant_nemesis
-				}
-			}
-		}
+		#AGOT Added; ESR
+		esr_grant_title_other_relations_opinion = yes
 
 		if = {
 			limit = {
@@ -1646,6 +1508,55 @@ grant_titles_interaction = {
 		# 		}
 		# 	}
 		# }
+
+		#AGOT Added
+		if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+					count > 1
+				}
+			}
+			custom_tooltip = grant_only_one_settlement_at_a_time
+		}
+		if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+					NOT = {
+						any_neighboring_county = {
+							holder = scope:recipient
+						}
+					}
+				}
+			}
+			custom_tooltip = recipient_needs_to_border_settlement_county
+		}
+		if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+				}
+				scope:recipient = { agot_at_settlement_limit = yes }
+				scope:actor.culture = { has_cultural_parameter = grants_to_lowborns_bonuses }
+				scope:recipient = {
+					is_lowborn = yes
+				}
+			}
+			every_in_list = {
+				list = target_titles
+				limit = { tier = tier_county }
+				change_county_control = 30
+			}
+			scope:recipient = {
+				add_trait = peasant_leader
+			}
+		}
 	}
 }
 
@@ -1708,12 +1619,8 @@ grant_governorship_interaction = {
 			}
 		}
 		#AGOT Added
-		scope:actor = {
-			is_human = yes
-		}
-		scope:recipient = {
-			is_human = yes
-		}
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
 	}
 
 	is_valid_showing_failures_only = {
@@ -2145,6 +2052,8 @@ grant_governorship_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_duchy } }
 
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
@@ -2177,6 +2086,8 @@ grant_governorship_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_kingdom } }
 
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
@@ -2270,6 +2181,8 @@ grant_governorship_interaction = {
 			}
 			custom_tooltip = grant_title_modifier_stack_discontent
 		}
+		#AGOT Added; ESR
+		esr_grant_title_other_relations_opinion = yes
 
 		# Jealousy check
 		if = {
