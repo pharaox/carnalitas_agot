@@ -1,3 +1,3 @@
-version="0.7.0"
+version="0.8.0"
 name="Carnalitas AGOT Compatibility"
-supported_version="1.17.*"
+supported_version="1.18.*"
