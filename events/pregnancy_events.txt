@@ -196,6 +196,7 @@ pregnancy.0001 = {
 			#AGOT Modified
 			#10 = { #Pregnancy ends prematurely
 			25 = { #Pregnancy ends prematurely
+
 				#AGOT Added
 				modifier = {
 					add = -15
@@ -229,6 +230,7 @@ pregnancy.0001 = {
 					add = -2
 					is_ai = no
 				}
+
 				#AGOT Added, LMF
 				modifier = {
 					add = -1
@@ -269,6 +271,7 @@ pregnancy.0001 = {
 					add = -2
 					is_ai = no
 				}
+
 				#AGOT Added, LMF
 				modifier = {
 					add = -1
@@ -312,6 +315,7 @@ pregnancy.0001 = {
 						has_doctrine_parameter = healthier_children_active
 					}
 				}
+
 				#AGOT Added
 				modifier = {
 					factor = 0
@@ -342,6 +346,7 @@ pregnancy.0001 = {
 					#AGOT Added
 					has_game_rule = lmf_no_birth_fertility_modifiers
 				}
+
 				#AGOT Added, LMF
 				modifier = { #to keep players from dying excessively
 					add = -5
@@ -482,14 +487,12 @@ pregnancy.1001 = {
 		add_trait = pregnant
 		scope:real_father = {
 			if = {
-				limit = {
-					NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } }
-				}
+				limit = { accepts_adultery_without_penalty_trigger = no }
+				pregnancy_spouse_suspicion_chance_effect = yes
 			}
-			pregnancy_spouse_suspicion_chance_effect = yes
 		}
 	}
-
+	
 	option = {
 		name = pregnancy.1001.a
 	}
@@ -604,7 +607,7 @@ pregnancy.1002 = {
 }
 
 scripted_trigger former_consort_was_father = {
-	OR = {
+	OR = {	
 		any_former_spouse = {
 			even_if_dead = yes
 			this = scope:father
@@ -669,7 +672,7 @@ pregnancy.1101 = {
 				desc = pregnancy.1101.desc.dead
 			}
 			desc = pregnancy.1101.desc.divorced
-
+			
 		}
 		desc = pregnancy.1101.desc.end
 	}
@@ -776,7 +779,7 @@ pregnancy.1102 = {
 		}
 		animation = happiness
 	}
-
+	
 
 	option = {
 		name = pregnancy.1102.a
@@ -882,9 +885,7 @@ pregnancy.2001 = {
 		is_pregnant = yes # Fix to prevent pipeline failures on account of set_num_pregnancy_children being used on an unpregnant character
 		NOR = {
 			# If we are married or have concubines (or are a concubine) this event is not valid, as there is a (assumed) father.
-			any_consort = {
-				count > 0
-			}
+			any_consort = { }
 			# Same for if a former spouse/concubine got us pregant.
 			former_consort_was_father = yes
 			#AGOT Added; LMF
@@ -1026,7 +1027,7 @@ pregnancy.2001 = {
 		if = {
 			limit = {
 				any_owned_story = {
-					story_type = story_peasant_affair
+					type = story_peasant_affair
 					var:peasant_character = {
 						this = scope:real_father
 					}
@@ -1074,7 +1075,7 @@ pregnancy.2001 = {
 			#AGOT Added End
 			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
 				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+				accepts_adultery_without_penalty_trigger = yes
 			}
 			#AGOT Added, force mother of bastard canon children to confess to real father if configured to do so
 			modifier = {
@@ -1103,7 +1104,7 @@ pregnancy.2001 = {
 			}
 			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
 				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+				accepts_adultery_without_penalty_trigger = yes
 			}
 			#AGOT Added, don't trigger suspicion if father is configured to not find out
 			modifier = {
@@ -1136,7 +1137,7 @@ pregnancy.2001 = {
 			}
 			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
 				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+				accepts_adultery_without_penalty_trigger = yes
 			}
 		}
 	}
@@ -1154,7 +1155,7 @@ pregnancy.2002 = {
 				desc = pregnancy.2002.father_is_paramour
 			}
 			triggered_desc = {
-				trigger = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } }
+				trigger = { accepts_adultery_without_penalty_trigger = yes }
 				desc = pregnancy.2002.desc.polyamorous
 			}
 			desc = pregnancy.2002.desc
@@ -1167,14 +1168,14 @@ pregnancy.2002 = {
 	}
 	right_portrait = scope:father
 	lower_center_portrait = scope:real_father
-
+	
 	trigger = {
 		# If we are married and/or have concubines, but the real father is not one of them, it's a bastard!
 		any_consort = {
 			carn_gender_can_impregnate_trigger = yes
 		}
 		pregnancy_real_father = {
-			NOT = {	is_consort_of = root }
+			NOT = {	is_consort_of = root }	
 		}
 
 		# OBJECTION! If a former spouse/concubine is both the real and assumed father, it's not actually a bastard!
@@ -1212,7 +1213,7 @@ pregnancy.2002 = {
 		}
 
 		save_scope_as = mother
-		hidden_effect = {
+		hidden_effect = {	
 			set_num_pregnancy_children = 1
 			if = {
 				limit = {
@@ -1252,11 +1253,11 @@ pregnancy.2002 = {
 
 	option = { #Confess
 		name = {
-			trigger = { NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } } }
+			trigger = { accepts_adultery_without_penalty_trigger = no }
 			text = pregnancy.2002.a
 		}
 		name = {
-			trigger = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } }
+			trigger = { accepts_adultery_without_penalty_trigger = yes }
 			text = pregnancy.2001.a
 		}
 
@@ -1268,15 +1269,18 @@ pregnancy.2002 = {
 		married_mother_pregnancy_effect = yes
 		add_fornicator_trait_or_nothing_effect = yes
 		bastardy_pregnancy_announcement_effect = yes
-		expose_lover_secret_or_run_consequence_effect = {
-			TARGET = scope:real_father
-			EXPOSER = scope:mother
+		if = {
+			limit = { accepts_adultery_without_penalty_trigger = no }
+			expose_lover_secret_or_run_consequence_effect = {
+				TARGET = scope:real_father
+				EXPOSER = scope:mother
+			}
 		}
 		ai_chance = {
 			base = 0
 			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
 				add = 100
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+				accepts_adultery_without_penalty_trigger = yes
 			}
 		}
 	}
@@ -1293,7 +1297,7 @@ pregnancy.2002 = {
 		if = {
 			limit = {
 				any_owned_story = {
-					story_type = story_peasant_affair
+					type = story_peasant_affair
 					var:peasant_character = {
 						this = scope:real_father
 					}
@@ -1320,7 +1324,7 @@ pregnancy.2002 = {
 			}
 			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
 				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+				accepts_adultery_without_penalty_trigger = yes
 			}
 			#AGOT Added, force mother of bastard canon children to confess to real father if configured to do so
 			modifier = {
@@ -1351,14 +1355,14 @@ pregnancy.2002 = {
 			}
 			modifier = { # Never hide the truth in faiths with the Polyamory tenet.
 				factor = 0
-				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+				accepts_adultery_without_penalty_trigger = yes
 			}
 			#AGOT Added, shouldn't trigger for fathers configured not to find out
 			modifier = {
 				add = 10000
 				scope:mother.pregnancy_assumed_father = {
 					has_character_flag = agot_father_will_not_suspect_pregnancy
-				}
+				}	
 			}
 		}
 	}
@@ -1441,7 +1445,7 @@ pregnancy.2005 = {
 		animation = sadness
 	}
 
-	immediate = {
+	immediate = {	
 		if = {
 			limit = {
 				is_married = no
@@ -1494,7 +1498,7 @@ pregnancy.2050 = {
 	desc = {
 		first_valid = {
 			triggered_desc = {
-				trigger = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } }
+				trigger = { accepts_adultery_without_penalty_trigger = yes }
 				desc = pregnancy.2050.desc.polyamorous
 			}
 			desc = pregnancy.2050.desc
@@ -1510,11 +1514,11 @@ pregnancy.2050 = {
 			NOT = { carn_gender_can_impregnate_trigger = yes }
 		}
 		pregnancy_real_father = {
-			NOT = {	is_consort_of = root }
+			NOT = {	is_consort_of = root }	
 		}
 
 		# OBJECTION! If a former spouse/concubine is both the real and assumed father, it's not actually a bastard!
-		NOT = {
+		NOT = {	
 			former_consort_was_father = yes
 		}
 
@@ -1529,7 +1533,7 @@ pregnancy.2050 = {
 		play_music_cue = "mx_cue_succession"
 
 		save_scope_as = mother
-		hidden_effect = {
+		hidden_effect = {	
 			set_num_pregnancy_children = 1
 			if = {
 				limit = {
@@ -1572,11 +1576,11 @@ pregnancy.2050 = {
 
 	option = { #Confess (for now this is the only option since you cannot deny that you've slept with someone else)
 		name = {
-			trigger = { NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } } }
+			trigger = { accepts_adultery_without_penalty_trigger = no }
 			text = pregnancy.2002.a
 		}
 		name = {
-			trigger = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } }
+			trigger = { accepts_adultery_without_penalty_trigger = yes }
 			text = pregnancy.2001.a
 		}
 
@@ -1630,7 +1634,7 @@ pregnancy.2101 = {
 		character = root
 		animation = personality_cynical
 	}
-
+	
 	trigger = {
 		is_pregnant = yes
 	}
@@ -1748,7 +1752,7 @@ pregnancy.3001 = {
 	}
 	theme = pregnancy
 	left_portrait = scope:mother
-
+	
 	trigger = {
 		scope:mother = {
 			is_pregnant = yes
@@ -2128,7 +2132,7 @@ pregnancy.3004 = {
 
 	option = { #This must be kept secret!
 		name = pregnancy.3004.a
-	}
+	}	
 }
 
 #5000: Follow-ups
@@ -2154,7 +2158,7 @@ pregnancy.5001 = {
 	}
 	right_portrait = {
 		trigger = {
-			NOT = { scope:spouse = scope:real_father_inquirer }
+			scope:spouse != scope:real_father_inquirer
 		}
 		character = scope:spouse
 	}
@@ -2184,7 +2188,7 @@ pregnancy.5001 = {
 
 	option = { #Insist real_father is wrong
 		name = pregnancy.5001.b
-		trigger = { NOT = { scope:real_father_inquirer = scope:real_father } }
+		trigger = { scope:real_father_inquirer != scope:real_father }
 		fallback = yes # Only show if they are not the father
 		ai_chance = {
 			base = 100
@@ -2271,10 +2275,10 @@ pregnancy.5003 = {
 		character = scope:mother
 		animation = personality_callous
 	}
-
+	
 	option = { #Are they really telling the truth?
 		name = pregnancy.5003.a
-	}
+	}	
 }
 
 
@@ -2313,7 +2317,7 @@ pregnancy.6002 = {
 		triggered_desc = {
 			trigger = {
 				exists = scope:spouse
-				scope:spouse = { NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } } }
+				scope:spouse = { accepts_adultery_without_penalty_trigger = no }
 			}
 			desc = pregnancy.6002.married
 		}
@@ -2349,8 +2353,7 @@ pregnancy.6002 = {
 	immediate = {
 		if = {
 			limit = {
-				exists = primary_partner
-				primary_partner = { NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } } }
+				primary_partner ?= { accepts_adultery_without_penalty_trigger = no }
 			}
 			primary_partner = {
 				save_scope_as = spouse
@@ -2358,9 +2361,7 @@ pregnancy.6002 = {
 		}
 		else = {
 			random_consort = {
-				limit = {
-					NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } }
-				}
+				limit = { accepts_adultery_without_penalty_trigger = no }
 				save_scope_as = spouse
 			}
 		}

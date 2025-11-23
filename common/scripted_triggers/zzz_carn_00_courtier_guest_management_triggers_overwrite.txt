@@ -70,7 +70,6 @@
 				}
 			}
 		}
-		has_epidemic_disease_trigger = yes
 		#Keep daughters/sons for marriages
 		AND = {
 			OR = {
@@ -121,16 +120,14 @@
 		any_targeting_scheme = {
 			scheme_type = elope
 		}
-
+		
 		#Non-dominant spouses don't wander off
 		AND = {
 			is_married = yes
 			any_spouse = {
 				OR = {
-					AND = {
-						exists = liege
-						liege = scope:leaving_courtier.liege
-					}
+					liege ?= scope:leaving_courtier.liege
+
 					AND = {
 						exists = host
 						exists = scope:leaving_courtier.host
@@ -161,21 +158,28 @@
 		# Diarchs don't leave their court.
 		is_diarch = yes
 		is_designated_diarch = yes
-
+		
 		#Shieldmaidens stay till dismissed.
 		has_trait = shieldmaiden
-
+		
 		# Children taught a lesson won't leave
 		has_character_modifier = mellowed_spirit
 
 		# Courtiers with sponsored inspirations won't leave on their own.
-		AND = {
-			exists = inspiration
-			inspiration = {	exists = inspiration_sponsor }
-		}
+		inspiration ?= { exists = inspiration_sponsor }
 
 		scope:liege = { government_has_flag = government_is_landless_adventurer }
 		is_obedient_to = scope:liege
+		
+		#AGOT Disabled
+		# AND = {
+		# 	scope:liege.primary_title = title:h_china
+		# 	OR = {
+		# 		is_child_of = scope:liege
+		# 		is_grandchild_of = scope:liege
+		# 		is_great_grandchild_of = scope:liege
+		# 	}
+		# }
 
 		#AGOT Added
 		NOT = { has_trait = kingsguard }
@@ -207,9 +211,18 @@ can_recruit_character_to_court_trigger = {
 			trigger_if = {
 				limit = {
 					exists = host
+					host = { is_ai = no }
 					NOT = { is_player_heir_of = scope:recruiter }
 				}
 				is_player_heir_of = host
+			}
+			trigger_if = {
+				limit = {
+					exists = host
+					host = { is_ai = yes }
+					NOT = { is_player_heir_of = scope:recruiter }
+				}
+				is_primary_heir_of = host
 			}
 			trigger_if = {
 				limit = { exists = host }
@@ -258,7 +271,7 @@ can_recruit_character_to_court_trigger = {
 			}
 			trigger_if = {
 				limit = {
-					scope:recruiter = { is_landless_adventurer = yes }
+					scope:recruiter = { has_government = landless_adventurer_government }
 				}
 				custom_tooltip = {
 					text = can_recruit_character_to_court_trigger.tt.laamps_invitation_restrictions
@@ -286,8 +299,7 @@ can_recruit_character_to_court_trigger = {
 				any_spouse = {
 					is_female = yes
 					matrilinear_marriage = yes
-					exists = host
-					host = scope:recruitee.host
+					host ?= scope:recruitee.host
 					save_temporary_scope_as = spouse
 					OR = { #Is employed in some way
 						is_councillor_of = scope:recruitee.host
@@ -332,8 +344,7 @@ can_recruit_character_to_court_trigger = {
 				any_spouse = {
 					is_male = yes
 					patrilinear_marriage = yes
-					exists = host
-					host = scope:recruitee.host
+					host ?= scope:recruitee.host
 					save_temporary_scope_as = spouse
 					OR = { #Is employed in some way
 						is_councillor_of = scope:recruitee.host
@@ -390,6 +401,8 @@ can_recruit_character_to_court_trigger = {
 					}
 				}
 			}
+			#Unop Disable Invite to Court for paiza merchants
+			has_variable = merchant_var
 
 			#AGOT Added
 			agot_is_available_for_anything = no

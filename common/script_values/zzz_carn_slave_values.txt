@@ -215,7 +215,7 @@
 		add = 1
 	}
 	if = { # historically, eunuchs were worth more (they don't fuck your wife)
-		limit = { has_trait = eunuch }
+		limit = { is_eunuch_trigger = yes }
 		add = 1
 	}
 	if = {

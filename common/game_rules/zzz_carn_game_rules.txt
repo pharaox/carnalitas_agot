@@ -1,9 +1,21 @@
 ﻿carn_slavery_default_religious_doctrine = {
 	default = carn_slavery_default_religious_doctrine_full_historical
-	carn_slavery_default_religious_doctrine_full_historical = {}
-	carn_slavery_default_religious_doctrine_historical = {}
-	carn_slavery_default_religious_doctrine_accepted = {}
-	carn_slavery_default_religious_doctrine_shunned = {}
-	carn_slavery_default_religious_doctrine_criminal = {}
-	carn_slavery_default_religious_doctrine_inverted = {}
+	carn_slavery_default_religious_doctrine_full_historical = {
+		flag = GG_cannot_change_rule
+	}
+	carn_slavery_default_religious_doctrine_historical = {
+		flag = GG_cannot_change_rule
+	}
+	carn_slavery_default_religious_doctrine_accepted = {
+		flag = GG_cannot_change_rule
+	}
+	carn_slavery_default_religious_doctrine_shunned = {
+		flag = GG_cannot_change_rule
+	}
+	carn_slavery_default_religious_doctrine_criminal = {
+		flag = GG_cannot_change_rule
+	}
+	carn_slavery_default_religious_doctrine_inverted = {
+		flag = GG_cannot_change_rule
+	}
 }

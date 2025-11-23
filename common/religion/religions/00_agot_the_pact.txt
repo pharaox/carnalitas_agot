@@ -68,7 +68,7 @@
 		HealthGodSheHe = CHARACTER_SHEHE_THEY
 		HealthGodHerHis = CHARACTER_HERHIS_THEIR
 		HealthGodHerHim = CHARACTER_HERHIM_THEM
-		
+
 		#FertilityGod
 		FertilityGodName = old_gods_wnw_fertility_god_name
 		FertilityGodNamePossessive = old_gods_wnw_fertility_god_name_possessive
@@ -131,7 +131,7 @@
 		WaterGodSheHe = CHARACTER_SHEHE_THEY
 		WaterGodHerHis = CHARACTER_HERHIS_THEIR
 		WaterGodHerHim = CHARACTER_HERHIM_THEM
-		
+
 		DeathDeityName = old_gods_wnw_death_deity_name
 		DeathDeityNamePossessive = old_gods_wnw_death_deity_name_possessive
 		DeathDeitySheHe = CHARACTER_SHEHE_THEY
@@ -1578,7 +1578,7 @@
 			doctrine = doctrine_monogamy
 			doctrine = doctrine_divorce_allowed
 			doctrine = doctrine_bastardry_legitimization
-			doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			doctrine = doctrine_consanguinity_siblings
 
 			#Criminology Doctrines
 			doctrine = doctrine_homosexuality_shunned

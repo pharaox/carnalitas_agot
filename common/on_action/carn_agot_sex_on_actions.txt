@@ -1,0 +1,10 @@
+﻿carn_on_pregnancy = {
+	on_actions = { carn_agot_on_pregnancy }
+}
+
+carn_agot_on_pregnancy = {
+	effect = {
+		#AGOT Added; LMF
+		event_pregnancy_effect = yes
+	}
+}
