@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.10.1
+
+* Fixed an issue with secondary spouses disappearing from character UI if exactly 4.
+
 ## Version 0.10.0
 
 * Adapted to CK3 1.19.0.4 and AGOT 0.4.32.2.
