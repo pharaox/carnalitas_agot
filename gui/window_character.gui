@@ -2098,8 +2098,8 @@ window = {
 
 									vbox_character_row_item = {
 										name = "secondary_spouses"
-										# show if there are 2-3 spouses
-										visible = "[And( GreaterThan_int32( Character.GetMaxSpouses, '(int32)1' ), LessThanOrEqualTo_int32( Character.GetMaxSpouses, '(int32)3' ))]"
+										# show if there are 2-4 spouses
+										visible = "[And( GreaterThan_int32( Character.GetMaxSpouses, '(int32)1' ), LessThanOrEqualTo_int32( Character.GetMaxSpouses, '(int32)4' ))]"
 										layoutpolicy_vertical = expanding
 
 										blockoverride "portrait_datamodel" {
